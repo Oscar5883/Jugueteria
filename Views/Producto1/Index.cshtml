@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Entidades.EntidadProducto>
+
+@{ ViewBag.Title = "Index"; }
+
+<h2>Catalogo Productos</h2>
+<br />
+<p>
+
+    <div class="row">
+
+        <button data-toggle="tooltip" data-placement="top" title="Agregar Producto" id="BtnNuevo" type="button" class="btn btn-primary" onclick="Nuevo()">
+            <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
+    <br />
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestriccionEdad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Compañia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RestriccionEdad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Compañia)
+    </td>
+    <td>
+        $ @Html.DisplayFor(modelItem => item.Precio)
+    </td>
+    <td>
+
+
+      
+        <button data-toggle="tooltip" data-placement="right" title="Editar Producto" id="BtnEditar" type="button" onclick="location.href='@Url.Action("Edit", "Producto1",new {id=item.Id })'" class="btn btn-warning">
+            <i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i>
+        </button>
+
+        <button data-toggle="tooltip" data-placement="right" title="Eliminar Producto" id="BtnEliminar" type="button" onclick="Eliminar('@item.Id','@item.Nombre')" class="btn btn-danger">
+            <i class="fa fa-trash-o fa-1x" aria-hidden="true"></i>
+        </button>
+    </td>
+</tr>}
+
+</table>
+<script src="~/Scripts/Producto1/Index.js"></script>
+<script src="~/Scripts/Producto1/EliminarProducto.js"></script>
