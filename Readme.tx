@@ -1,0 +1,4 @@
+Paso para ejecutar proyecto:
+1-Ejecuta  el archivo  BaseJugueteria en sql server
+2-Cambiar  en  el web config en la seecion de conexion el origen de datospor el de su servidor
+3-Ejecutar el proyecti  en visual studio
